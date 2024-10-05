@@ -1,0 +1,209 @@
+.carousel.img {
+   max-height: 100vh; 
+}
+
+.carousel-caption {
+    border-top: 10px solid blue;
+    background-color: #00000094;
+   
+}
+
+.vh-50{
+    height: 50vh;
+}
+
+.primary{
+    color: blue;
+}
+
+.active{
+    color: blue !important;
+}
+
+.title-container{
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.title-container h2::after{
+    content: " ";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: blue;
+    bottom: 0;
+    left: calc(50% - 25px);
+}
+
+.img-small {
+    width: 300px;
+    height: auto;
+    display: block;
+    margin-left: 20%;
+}
+
+.img-ppdb {
+    display: block;
+    margin: 0 auto;
+    max-width: 50%;
+    height: auto;
+    text-align: center;
+}
+
+
+.profile-title{
+    font-size: 24px;
+}
+
+.profile-subtitle{
+    font-size: 12px;
+}
+
+.mansory-sizer,
+.mansory-item{
+    width: 200px;
+}
+
+.brand-imge{
+    width: 50%;
+    object-fit: cover;
+    filter: grayscale(1);
+    transition: 0,5s;
+}
+.brand-imge:hover{
+   filter: grayscale(0);
+   transform: scale(1.2);
+}
+
+a{
+    color: white;
+}
+
+.social-links{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bg-draker{
+    background: #111;
+}
+
+.btn-subscribe, 
+.btn-to-top{
+    background:blue ;
+}
+
+.btn-to-top{
+    display: inline;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+}
+
+.btn-submit{
+    background: blue;
+    color: white;
+}
+
+.galeri-filters li{
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.galeri-filters, filter-active,
+.breadcumbs{
+    background:blue; 
+}
+
+.breadcumbs{
+    margin-top: 72px;
+}
+
+.breadcumbs ol li + li::before{
+    display: inline-block;
+    color: white;
+    padding-right: 10px;
+    padding-left: 10px;
+    content: "/";
+}
+
+.card-img-top{
+    height: 300px; 
+    object-fit: cover;
+}
+
+/* Mengatur ukuran card agar lebih kecil */
+.small-card .card {
+    padding: 5px; /* Memperkecil padding card */
+    margin: 5px;  /* Memperkecil margin antar card */
+    max-width: 300px; /* Mengatur lebar maksimal card */
+    height: auto; /* Agar tinggi card menyesuaikan konten */
+}
+
+/* Mengatur ukuran gambar di dalam card agar lebih kecil */
+.small-card .news-img {
+    height: 150px; /* Mengatur tinggi gambar */
+    object-fit: cover; /* Gambar akan menutupi card tanpa melar */
+}
+
+/* Mengatur ukuran font dan elemen di dalam card */
+.small-card .news-title {
+    font-size: 14px; /* Memperkecil ukuran font judul berita */
+}
+
+.small-card .news-date {
+    font-size: 12px; /* Memperkecil ukuran font tanggal berita */
+}
+
+.small-card .card-text {
+    font-size: 12px; /* Memperkecil ukuran teks deskripsi */
+}
+
+
+
+@media (max-width : 768px){
+    .mansory-sizer,
+    .mansory-item{
+        width: 40%;
+    } 
+}
+
+@media (max-width : 576px){
+    .mansory-sizer,
+    .mansory-item{
+        width: 100%;
+    } 
+}
+
+
+.galeri-container {
+    padding-left: 15px; /* Menambah ruang di sisi kiri */
+    padding-right: 15px; /* Menambah ruang di sisi kanan */
+    display: flex; /* Menggunakan flexbox untuk menyusun item secara horizontal */
+    justify-content: center; /* Menyusun item di tengah */
+    flex-wrap: wrap; /* Membungkus item jika diperlukan */
+  }
+  
+  .mansory-item {
+    margin-left: 10px; /* Menambah jarak antara item galeri */
+    margin-right: 10px; /* Menambah jarak antara item galeri */
+  }
+  
+  .row {
+    margin-left: -15px; /* Menghapus margin default di sisi kiri */
+    margin-right: -15px; /* Menghapus margin default di sisi kanan */
+  }
+  
+  .col-md-12 {
+    padding-left: 150px; /* Menambah padding di sisi kiri kontainer */
+    padding-right: 15px; /* Menambah padding di sisi kanan kontainer */
+  }
+  
+  .mansory {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Menyebarkan item dengan jarak yang sama */
+  }
+  
+    
