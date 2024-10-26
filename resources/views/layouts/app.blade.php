@@ -91,7 +91,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/sambutans" class="nav-link">
+                <a href="/admin/sambutan" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Sambutan</p>
                 </a>
@@ -109,7 +109,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/ppdbs" class="nav-link">
+                <a href="/admin/ppdb" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data PPDB</p>
                 </a>
@@ -127,6 +127,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <i class="nav-icon fas fa-bullseye"></i>
               <p>
                 Visi Misi
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/admin/visi" class="nav-link">
+              <i class="nav-icon fas fa-bullseye"></i>
+              <p>
+                Visi
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/admin/misis" class="nav-link">
+              <i class="nav-icon fas fa-bullseye"></i>
+              <p>
+                Misi
               </p>
             </a>
           </li>

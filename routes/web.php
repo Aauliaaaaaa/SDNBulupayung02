@@ -12,6 +12,9 @@ use App\Http\Controllers\SambutanController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\MisiController;
+use App\Http\Controllers\VisiController;
+use App\Http\Controllers\VisiMisiController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -39,10 +42,9 @@ Route::prefix('/admin')->middleware('auth')->group(function(){
     Route::resource('sliders', SliderController::class);
     Route::resource('beritas', BeritaController::class);
     Route::resource('galeris', GaleriController::class);
-    Route::resource('sambutans', SambutanController::class);
-    Route::resource('ppdbs', PpdbController::class);
     Route::resource('jumlahs', JumlahController::class);
     Route::resource('teams', TeamController::class);
+    Route::resource('misis', MisiController::class);
 
     Route::get('contact', [ContactController::class, 'index']);
     Route::put('contact/{id}', [ContactController::class, 'update']);
@@ -50,4 +52,14 @@ Route::prefix('/admin')->middleware('auth')->group(function(){
 
     Route::get('about', [AboutController::class, 'index']);
     Route::put('about/{id}', [AboutController::class, 'update']);
+
+    Route::get('sambutan', [SambutanController::class, 'index']);
+    Route::put('sambutan/{id}', [SambutanController::class, 'update']);
+
+    Route::get('visi', [VisiController::class, 'index']);
+    Route::put('visi/{id}', [VisiController::class, 'update']);
+
+    Route::get('ppdb', [PpdbController::class, 'index']);
+    Route::put('ppdb/{id}', [PpdbController::class, 'update']);
+
 });

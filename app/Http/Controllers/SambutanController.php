@@ -12,9 +12,9 @@ class SambutanController extends Controller
      */
     public function index()
     {
-        $sambutans = Sambutan::all(); 
+        $sambutan = Sambutan::first();
 
-        return view('sambutan.index', compact('sambutans'));
+        return view('sambutan', compact('sambutan'));
     }
 
     /**
@@ -22,7 +22,7 @@ class SambutanController extends Controller
      */
     public function create()
     {
-        return view('sambutan.create');
+        //
     }
 
     /**
@@ -30,24 +30,7 @@ class SambutanController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'required|image',
-        ]);
-
-        $input = $request->all();
-
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $imageName = $image->getClientOriginalName();
-            $image->move($destinationPath, $imageName);
-            $input['image'] = $imageName;
-        }
-
-        Sambutan::create($input);
-
-        return redirect('/admin/sambutans')->with('message', 'Data berhasil ditambahkan');
+        //
     }
 
     /**
@@ -63,35 +46,37 @@ class SambutanController extends Controller
      */
     public function edit(Sambutan $sambutan)
     {
-        return view('sambutan.edit', compact('sambutan'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Sambutan $sambutan)
+    public function update(Request $request, $id)
     {
+        $sambutan = Sambutan::find($id);
+
         $request->validate([
-            'title' => 'required',
+            'name' => 'required',
             'description' => 'required',
-            'image' => 'image',
+            'logo' => 'image',
         ]);
 
         $input = $request->all();
 
-        if ($image = $request->file('image')) {
+        if ($image = $request->file('logo')) {
             $destinationPath = 'image/';
             $imageName = $image->getClientOriginalName();
             $image->move($destinationPath, $imageName);
-            $input['image'] = $imageName;
-        }
-        else{
-            unset($input['image']);
+            $input['logo'] = $imageName;
+        } else {
+            unset($input['logo']);
         }
 
         $sambutan->update($input);
 
-        return redirect('/admin/sambutans')->with('message', 'Data berhasil diedit');
+        return redirect('/admin/sambutan')->with('message', 'Data berhasil diedit');
+
     }
 
     /**
@@ -99,8 +84,6 @@ class SambutanController extends Controller
      */
     public function destroy(Sambutan $sambutan)
     {
-       $sambutan->delete(); 
-
-       return redirect('/admin/sambutans')->with('message', 'Data berhasil dihapus');
+        //
     }
 }

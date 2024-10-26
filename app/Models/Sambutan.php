@@ -9,7 +9,8 @@ class Sambutan extends Model
 {
     use HasFactory;
 
+    protected $table = 'sambutan';
     protected $fillable =[
-        'title', 'description', 'image'
+        'name', 'description', 'logo'
     ];
 }

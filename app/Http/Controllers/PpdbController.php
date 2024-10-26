@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PPDB;
+use App\Models\Ppdb;
 use Illuminate\Http\Request;
 
 class PpdbController extends Controller
@@ -12,9 +12,10 @@ class PpdbController extends Controller
      */
     public function index()
     {
-        $ppdbs = PPDB::all(); 
+        $ppdb = Ppdb::first();
 
-        return view('ppdb.index', compact('ppdbs'));
+        return view('ppdb', compact('ppdb'));
+ 
     }
 
     /**
@@ -22,7 +23,7 @@ class PpdbController extends Controller
      */
     public function create()
     {
-        return view('ppdb.create');
+        //
     }
 
     /**
@@ -30,30 +31,13 @@ class PpdbController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'required|image',
-        ]);
-
-        $input = $request->all();
-
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $imageName = $image->getClientOriginalName();
-            $image->move($destinationPath, $imageName);
-            $input['image'] = $imageName;
-        }
-
-        Ppdb::create($input);
-
-        return redirect('/admin/ppdbs')->with('message', 'Data berhasil ditambahkan');
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(PPDB $ppdb)
+    public function show(Ppdb $ppdb)
     {
         //
     }
@@ -63,44 +47,43 @@ class PpdbController extends Controller
      */
     public function edit(Ppdb $ppdb)
     {
-        return view('ppdb.edit', compact('ppdb'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PPDB $ppdb)
+    public function update(Request $request, $id)
     {
+        $ppdb = Ppdb::find($id);
+
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'image',
+            'name' => 'required',
+            'logo' => 'image',
         ]);
 
         $input = $request->all();
 
-        if ($image = $request->file('image')) {
+        if ($image = $request->file('logo')) {
             $destinationPath = 'image/';
             $imageName = $image->getClientOriginalName();
             $image->move($destinationPath, $imageName);
-            $input['image'] = $imageName;
-        }
-        else{
-            unset($input['image']);
+            $input['logo'] = $imageName;
+        } else {
+            unset($input['logo']);
         }
 
         $ppdb->update($input);
 
-        return redirect('/admin/ppdbs')->with('message', 'Data berhasil diedit');
+        return redirect('/admin/ppdb')->with('message', 'Data berhasil diedit');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PPDB $ppdb)
+    public function destroy(Ppdb $ppdb)
     {
-       $ppdb->delete(); 
-
-       return redirect('/admin/ppdbs')->with('message', 'Data berhasil dihapus');
+        //
     }
 }

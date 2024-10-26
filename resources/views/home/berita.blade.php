@@ -115,9 +115,9 @@
     </div>
     
     <!-- Tombol untuk Lihat Semua Berita -->
-    <div class="text-center mt-4">
+    {{-- <div class="text-center mt-4">
       <a href="#" class="btn btn-secondary">Lihat Semua Berita</a>
-    </div>
+    </div> --}}
   </div>
   <!-- end berita -->
   
