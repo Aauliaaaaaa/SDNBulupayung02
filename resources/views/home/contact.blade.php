@@ -21,8 +21,9 @@
    <!-- navbar -->
  <nav class="navbar navbar-expand-lg bg-white shadow shadow-sm fixed-top py-3">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="#"
-    ><span class="primary"></span>SD N Bulupayung 02</a>
+    <a class="navbar-brand fw-bold" href="#">
+      <img src="{{ asset('image/' . $contact->logo) }}" alt="Logo Sekolah" style="width: 40px; height: 40px; margin-right: 10px;">
+    <span class="primary"></span>SD N Bulupayung 02</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -75,9 +76,9 @@
 
     <!-- contact -->
      <div class="contact mb-5">
-        <div class="maps">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d988.6998531204188!2d109.1385521404077!3d-7.596797220037215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e65696d4d1e69af%3A0x7e3a752ddbc772ea!2sSD%20Negeri%20Bulupayung%2002!5e0!3m2!1sid!2sid!4v1724481670124!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+      <div class="maps">
+        <iframe src="https://www.google.com/maps/embed?pb={{ $contact->maps_embed }}" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-12">
@@ -88,17 +89,17 @@
                                     <div class="col-md-4">
                                         <i class="fa fa-map-marker-alt fa-2x primary float-start me-4"></i>
                                         <h4 class="fw-bolder">Location</h4>
-                                        <p class="ms-5">Jl. Tambangan, Bulupayung, Kec. Kesugihan, Kabupaten Cilacap, Jawa Tengah 53272</p>
+                                        <p class="ms-5">{{ $contact->alamat }}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <i class="fa fa-envelope fa-2x primary float-start me-4"></i>
                                         <h4 class="fw-bolder">Email</h4>
-                                        <p class="ms-5">info@gmail.com</p>
+                                        <p class="ms-5">{{ $contact->email }}</p>
                                     </div>
                                     <div class="col-md-3">
                                         <i class="fa fa-phone-alt fa-2x primary float-start me-4"></i>
                                         <h4 class="fw-bolder">Telephone</h4>
-                                        <p class="ms-5">(+)21 345 231 786</p>
+                                        <p class="ms-5">{{ $contact->telepon }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -149,15 +150,12 @@
           <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-3">
-              <h4 class="fw-bold">SD N Bulupayung 02</h4>
-              <p>jgbfjjbhs bv jhsfsvhbh bsn sjgjsgb vsjfhsf 
-                 bhfvhs sh cs
-                 jh bshjhs fhsjs
-                 sbjgsugyf
+              <h4 class="fw-bold">{{ $contact->name }}</h4>
+              <p>{{$contact-> description}}
               </p>
-              <strong>Phone</strong> : <span>+62829301929201</span>
+              <strong>Phone</strong> : <span>{{ $contact->telepon }}</span>
               <br/>
-              <strong>Email</strong> : <span>sdn@gmail.com</span>
+              <strong>Email</strong> : <span>{{ $contact->email }}</span>
             </div>
             <div class="col-md-2">
               <h4 class="fw-bold">UseFull link</h4>

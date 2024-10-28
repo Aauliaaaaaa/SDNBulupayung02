@@ -21,7 +21,9 @@
  <nav class="navbar navbar-expand-lg bg-white shadow shadow-sm fixed-top py-3">
   <div class="container">
     <a class="navbar-brand fw-bold" href="#"
-    ><span class="primary"></span>SD N Bulupayung 02</a>
+    >
+    <img src="/image/logosd.png" alt="" style="width: 40px; height: 40px; margin-right: 10px;">
+    <span class="primary"></span>SD N Bulupayung 02</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -74,22 +76,20 @@
 
   <!-- sambutan -->
    <!-- bg-light buat bg jd warna abu2 -->
-    <div class="sambutan mt-5">
-      <div class="container">
+   <div class="sambutan mt-5">
+    <div class="container">
         <div class="row mt-5">
-          <div class="col-md-4" data-aos="fade-right">
-            <img src="assets/img/4.jpg.jpeg" alt=""  class="img-small">
-          </div>
-          <div class="col-md-6" data-aos="fade-left">
-            <p>Assalamualikum wr wb <br>
-              Bentuk text ada disebelah kanan
-              mau diisi sama sambutan kepala sekolah atau visi misi juga boleh
-              visi misi aja ga si huhu. Prestasi yang diraih :
-          </p>
-          </div>
+            <div class="col-md-4" data-aos="fade-right">
+                <img src="{{ asset('image/' . $sambutan->logo) }}" alt="{{ $sambutan->name }}" class="img-small">
+            </div>
+            <div class="col-md-6" data-aos="fade-left">
+                <p>
+                    {{ $sambutan->description }}
+                </p>
+            </div>
         </div>
-      </div>
     </div>
+</div>
     <!-- sambutan -->
  
 </div>

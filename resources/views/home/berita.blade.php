@@ -20,8 +20,9 @@
  <!-- navbar -->
  <nav class="navbar navbar-expand-lg bg-white shadow shadow-sm fixed-top py-3">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="#"
-    ><span class="primary"></span>SD N Bulupayung 02</a>
+    <a class="navbar-brand fw-bold" href="#">
+    <img src="/image/logosd.png" alt="" style="width: 40px; height: 40px; margin-right: 10px;">
+    <span class="primary"></span>SD N Bulupayung 02</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -72,47 +73,25 @@
  <!-- end breadcumbs -->
 
   <!-- berita -->
-  <div class="container small-card mt-5">
-    <div class="row">
-      <!-- Berita 1 -->
-      <div class="col-md-4 news-item" data-aos="fade-up">
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200" class="card-img-top news-img" alt="Berita 1">
-          <div class="card-body">
-            <div class="news-date">17 September 2024</div>
-            <h5 class="news-title">Judul Berita 1</h5>
-            <p class="card-text">Deskripsi singkat berita 1 yang memberikan gambaran umum mengenai isi berita...</p>
-            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Berita 2 -->
-      <div class="col-md-4 news-item" data-aos="fade-up">
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200" class="card-img-top news-img" alt="Berita 2">
-          <div class="card-body">
-            <div class="news-date">15 September 2024</div>
-            <h5 class="news-title">Judul Berita 2</h5>
-            <p class="card-text">Deskripsi singkat berita 2 yang memberikan gambaran umum mengenai isi berita...</p>
-            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Berita 3 -->
-      <div class="col-md-4 news-item" data-aos="fade-up">
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200" class="card-img-top news-img" alt="Berita 3">
-          <div class="card-body">
-            <div class="news-date">10 September 2024</div>
-            <h5 class="news-title">Judul Berita 3</h5>
-            <p class="card-text">Deskripsi singkat berita 3 yang memberikan gambaran umum mengenai isi berita...</p>
-            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
-          </div>
-        </div>
+ <!-- resources/views/berita/index.blade.php -->
+    <div class="container small-card mt-5">
+      <div class="row">
+          @foreach ($beritas as $berita)
+              <div class="col-md-4 news-item" data-aos="fade-up">
+                  <div class="card">
+                      <img src="{{ asset('image/' . $berita->image) }}" class="card-img-top news-img" alt="{{ $berita->title }}">
+                      <div class="card-body">
+                          <div class="news-date">{{ \Carbon\Carbon::parse($berita->created_at)->format('d F Y') }}</div>
+                          <h5 class="news-title">{{ $berita->title }}</h5>
+                          <p class="card-text">{{ Str::limit($berita->description, 100) }}</p>
+                          <a href="{{ route('berita.show', $berita->id) }}" class="btn btn-primary">Baca Selengkapnya</a>
+                      </div>
+                  </div>
+              </div>
+          @endforeach
       </div>
     </div>
+
     
     <!-- Tombol untuk Lihat Semua Berita -->
     {{-- <div class="text-center mt-4">

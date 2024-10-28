@@ -53,9 +53,13 @@ class BeritaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Berita $berita)
+    public function show( $id)
     {
-        //
+        // Ambil berita berdasarkan ID
+    $berita = Berita::findOrFail($id); // Mengambil data berita
+
+    // Mengembalikan tampilan dengan data berita
+    return view('berita.show', compact('berita'));
     }
 
     /**

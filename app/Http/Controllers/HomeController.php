@@ -22,20 +22,26 @@ class HomeController extends Controller
     {
       $sliders = Slider::all();
       $about = About::first();
+      $visi = Visi::first();
+      $misi = Misi::all();
       $jumlahs = Jumlah::all();
       $sambutan = Sambutan::first();
       $beritas = Berita::all();
       $ppdb = Ppdb::first();
       $galeri = Galeri::all();
+      $contact = Contact::first();
 
        return view('home.index', compact(
          'sliders',
          'about',
+         'visi',
+         'misi',
          'jumlahs',
          'sambutan',
          'beritas',
          'ppdb',
          'galeri',
+         'contact',
        ));
     }
 
@@ -54,10 +60,14 @@ class HomeController extends Controller
 
     public function visimisi()
     {
+      $visi = Visi::first();
+      $misi = Misi::all();
       $teams = Team::all();
 
        return view('home.visimisi', compact(
-         'teams'
+        'visi',
+        'misi',
+        'teams',
        ));
     }
 
@@ -99,7 +109,7 @@ class HomeController extends Controller
     
     public function contact()
     {
-      $contact = Contact::all();
+      $contact = Contact::first();
 
        return view('home.contact', compact(
          'contact',

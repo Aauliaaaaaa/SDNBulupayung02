@@ -21,7 +21,9 @@
  <nav class="navbar navbar-expand-lg bg-white shadow shadow-sm fixed-top py-3">
     <div class="container">
       <a class="navbar-brand fw-bold" href="#"
-      ><span class="primary"></span>SD N Bulupayung 02</a>
+      >
+      <img src="/image/logosd.png" alt="" style="width: 40px; height: 40px; margin-right: 10px;">
+      <span class="primary"></span>SD N Bulupayung 02</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -77,13 +79,12 @@
         <div class="row mt-5 justify-content-center">
             <div class="col-md-6 text-center" data-aos="zoom-in-up">
                 <p>Visi :</p>
-                <p>Merealisasikan lingkungan yang nyaman bagi para siswa, guru, dan pekerja</p>
+                <p>{{ $visi->description }}</p> 
                 <p>Misi :</p>
                 <ul class="text-center list-unstyled">
-                    <li>1. Melindungi hak atas semua warga sekolah</li>
-                    <li>2. Menjaga ketertiban sekolah</li>
-                    <li>3. Membiasakan siswa dan siswi hidup sehat</li>
-                    <li>4. Menjadikan sekolah yang nyaman untuk belajar</li>
+                    @foreach($misi as $item)
+                        <li>{{ $loop->iteration }}. {{ $item->description }}</li>
+                    @endforeach
                 </ul>
             </div>
         </div>

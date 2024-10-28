@@ -13,6 +13,8 @@
        <link rel="stylesheet" href="/assets/vendor/aos/dist/aos.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/style.css"/>
+    <!-- lightbox -->
+    <link rel="stylesheet" href="assets/lightbox/lightbox (1).css"/>
     
     <title>SD N Bulupayung 02</title>
   </head>
@@ -21,7 +23,9 @@
  <nav class="navbar navbar-expand-lg bg-white shadow shadow-sm fixed-top py-3">
   <div class="container">
     <a class="navbar-brand fw-bold" href="#"
-    ><span class="primary"></span>SD N Bulupayung 02</a>
+    >
+    <img src="/image/logosd.png" alt="" style="width: 40px; height: 40px; margin-right: 10px;">
+    <span class="primary"></span>SD N Bulupayung 02</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -73,40 +77,32 @@
  <!-- end breadcumbs -->
 
   <!-- Galeri -->
-  <div class="galeri-us mt-5">
-    <div class="container">
-        <div class="row mt-5">
-            <div class="col-md-12">
-                <div class="mansory galeri-container">
-                    <div class="mansory-sizer"></div>
-                    <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
-                        <img src="/assets/img/g1.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
-                        <img src="/assets/img/g3.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
-                        <img src="/assets/img/g2.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
-                        <img src="/assets/img/g5.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
-                        <img src="/assets/img/g4.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
-                        <img src="/assets/img/g6.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
-                        <img src="/assets/img/g7.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
-                        <img src="/assets/img/g8.jpg" alt="" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+ <!-- resources/views/galeri/index.blade.php -->
+ <div class="galeri-us mt-5">
+  <div class="container">
+      <div class="title-container">
+          <h2 class="text-center fw-bold">Galeri</h2>
+      </div>
+      <div class="galeri-us mt-5">
+          <div class="container">
+              <div class="row mt-5">
+                  <div class="col-md-12">
+                      <div class="mansory galeri-container">
+                          <div class="mansory-sizer"></div>
+                          @foreach ($galeri as $galeri)
+                              <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
+                                  <!-- Tambahkan <a> dan data-lightbox -->
+                                  <a href="{{ asset('image/' . $galeri->image) }}" data-lightbox="galeri" data-title="{{ $galeri->title }}">
+                                      <img src="{{ asset('image/' . $galeri->image) }}" alt="{{ $galeri->title }}" class="img-fluid">
+                                  </a>
+                              </div>
+                          @endforeach
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
 
   <!-- Galeri -->
@@ -240,5 +236,14 @@
     <script src="/assets/vendor/aos/dist/aos.js"></script>
     <script src="/assets/vendor/isotope/isotope.pkgd.min.js"></script>
     <script src="assets/js/app.js"></script>
+    <script src="assets/lightbox/lightbox (1).js"></script>
+    <script>
+      lightbox.option({
+          'fadeDuration': 200,
+          'resizeDuration': 200,
+          'wrapAround': true,
+          'alwaysShowClose': true // Menampilkan tanda silang untuk kembali
+      });
+  </script>
   </body>
 </html>

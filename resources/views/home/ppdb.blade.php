@@ -21,7 +21,9 @@
  <nav class="navbar navbar-expand-lg bg-white shadow shadow-sm fixed-top py-3">
   <div class="container">
     <a class="navbar-brand fw-bold" href="#"
-    ><span class="primary"></span>SD N Bulupayung 02</a>
+    >
+    <img src="/image/logosd.png" alt="" style="width: 40px; height: 40px; margin-right: 10px;">
+    <span class="primary"></span>SD N Bulupayung 02</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -76,17 +78,23 @@
   <div class="ppdb mt-5"> 
     <div class="container">
         <div class="row mt-5">
-          <div class="col-md-12">
-            <div class="img-ppdb">
-              <div class=""></div>
-              <div class="mt-2" data-aos="zoom-in" style="margin-left: -100px;">
-                <img src="/assets/img/g1.jpg" alt="" class="img-fluid">
-              </div>
+            <div class="col-md-12">
+                <div class="img-ppdb text-center"> <!-- Menambahkan class text-center untuk perataan -->
+                    @if($ppdb) <!-- Memastikan data ada -->
+                        <h5 class="mt-3">{{ $ppdb->name }}</h5> <!-- Menampilkan nama PPDB -->
+                        <a href="{{ asset('image/' . $ppdb->logo) }}" data-lightbox="ppdb" data-title="{{ $ppdb->name }}">
+                          <img src="{{ asset('image/' . $ppdb->logo) }}" alt="{{ $ppdb->name }}" class="img-fluid">
+                        </a>
+                        <p>{{ $ppdb->description }}</p> <!-- Menampilkan deskripsi jika ada -->
+                    @else
+                        <p>Tidak ada informasi PPDB yang tersedia.</p>
+                    @endif
+                </div>
             </div>
-          </div>
         </div>
     </div>
-  </div>
+</div>
+
   <!-- PPDB -->
  
 </div>

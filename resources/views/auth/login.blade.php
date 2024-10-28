@@ -59,6 +59,13 @@
         <smal style="color: red">{{ $message }}</smal>
       @enderror
 
+      <div class="text-left">
+        <a href="/" target="_blank" class="btn btn-link">
+          Lihat Website
+        </a>
+      </div>
+
+
         <div class="row">
           <!-- /.col -->
           <div class="col-12">

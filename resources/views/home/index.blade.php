@@ -13,6 +13,9 @@
        <link rel="stylesheet" href="/assets/vendor/aos/dist/aos.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/style.css"/>
+    <!-- lightbox -->
+    <link rel="stylesheet" href="assets/lightbox/lightbox (1).css"/>
+    
     
     <title>SD N Bulupayung 02</title>
   </head>
@@ -20,8 +23,9 @@
  <!-- navbar -->
  <nav class="navbar navbar-expand-lg bg-white shadow shadow-sm fixed-top py-3">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="#"
-    ><span class="primary"></span>SD N Bulupayung 02</a>
+    <a class="navbar-brand fw-bold" href="#">
+      <img src="{{ asset('image/' . $contact->logo) }}" alt="Logo Sekolah" style="width: 40px; height: 40px; margin-right: 10px;">
+    <span class="primary"></span>SD N Bulupayung 02</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -59,7 +63,7 @@
 <!-- endnav -->
 
  <!-- carausel -->
- <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+ <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="margin-top: 50px;">
   <div class="carousel-indicators">
       @foreach ($sliders as $index => $slider)
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}" aria-label="Slide {{ $index + 1 }}"></button>
@@ -68,7 +72,7 @@
   <div class="carousel-inner">
       @foreach ($sliders as $index => $slider)
           <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-              <img src="{{ Storage::url ('images/' . $slider->image) }}" class="d-block w-100 carausel-img" alt="{{ $slider->title }}">
+              <img src="{{ asset ('image/' . $slider->image) }}" class="d-block w-100 carausel-img" alt="{{ $slider->title }}">
               <div class="carousel-caption d-none d-md-block">
                   <h5>{{ $slider->title }}</h5>
                   <p>{{ $slider->description }}</p>
@@ -97,37 +101,35 @@
         <div class="row mt-5">
             <div class="col-md-6" data-aos="fade-right">
                 <h3 class="fw-bold profile-title">
-                    SD N Bulupayung 02 merupakan unggulan di Desa Bulupayung.
+                    {{ $about-> judul }}
                 </h3>
                 <p class="fw-bolder mt-4 profile-subtitle">
-                    isinya deskripsi lebih jelas tentang sekolah mungkin?
+                   {{ $about-> subjudul}}
                 </p>
             </div>
             <div class="col-md-6" data-aos="fade-left">
-                <p>Bentuk text ada disebelah kanan
-                    mau diisi sama sambutan kepala sekolah atau visi misi juga boleh
-                    visi misi aja ga si huhu. Prestasi yang diraih :
+                <p>{{ $about -> deskripsi_1}}
                 </p>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                       <i class="fa fa-check-double primary"></i>
-                        Juara 1 lomba Menggambar
+                       {{ $about -> kelebiahan_1}}
                     </li>
                     <li class="list-group-item">
                       <i class="fa fa-check-double primary"></i>
-                        Juara 1 lomba Berenang
+                      {{ $about -> kelebiahan_2}}
                     </li>
                     <li class="list-group-item">
                       <i class="fa fa-check-double primary"></i>
-                        Juara 3 lomba Memanah
+                      {{ $about -> kelebiahan_3}}
                     </li>
                     <li class="list-group-item">
                       <i class="fa fa-check-double primary"></i>
-                        Juara 1 lomba Menangis
+                      {{ $about -> kelebiahan_4}}
                     </li>
                 </ul>
                 <p class="mt-2">
-                    kami sangat bangga atas pencapaian-pencapaian yang diraih oleh siswa siswi kami
+                  {{ $about -> deskripsi_2}}
                 </p>
             </div>
         </div>
@@ -136,21 +138,22 @@
   <!-- end about us -->
 
   <!-- visi misi -->
+
   <div class="visimisi mt-5">
     <div class="container">
-        <div class="title-container">
-            <h2 class="text-center fw-bold">Visi Misi</h2>
-        </div>
+      <div class="title-container">
+      <h2 class="text-center fw-bold">Visi Misi</h2>
+  </div>
+    <div class="container">
         <div class="row mt-5 justify-content-center">
             <div class="col-md-6 text-center" data-aos="zoom-in-up">
                 <p>Visi :</p>
-                <p>Merealisasikan lingkungan yang nyaman bagi para siswa, guru, dan pekerja</p>
+                <p>{{ $visi->description }}</p> 
                 <p>Misi :</p>
                 <ul class="text-center list-unstyled">
-                    <li>1. Melindungi hak atas semua warga sekolah</li>
-                    <li>2. Menjaga ketertiban sekolah</li>
-                    <li>3. Membiasakan siswa dan siswi hidup sehat</li>
-                    <li>4. Menjadikan sekolah yang nyaman untuk belajar</li>
+                    @foreach($misi as $item)
+                        <li>{{ $loop->iteration }}. {{ $item->description }}</li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -162,54 +165,25 @@
     <!-- jumlah -->
     <div class="jumlah mt-2 bg-light py-5">
       <div class="container">
-        <div class="title-container text-center p-4">
-          <h2 class="fw-bold">Data Singkat Sekolah</h2>
-        </div>
-        <div class="row mt-5 d-flex justify-content-center">
-          <div class="col-md-2">
-            <!-- border-0 untuk menghilangkan garis -->
-            <div class="card text-center mt-2" data-aos="zoom-in">
-              <div class="card-body">
-                <!-- Ikon untuk guru -->
-                <i class="fas fa-chalkboard-teacher fa-3x mb-3"></i>
-                <div class="card-title fw-bolder">12</div>
-                <div class="card-description fw-bold">Guru</div>
-              </div>
-            </div>
+          <div class="title-container text-center p-4">
+              <h2 class="fw-bold">Data Singkat Sekolah</h2>
           </div>
-          <div class="col-md-2">
-            <div class="card text-center mt-2" data-aos="zoom-in">
-              <div class="card-body">
-                <!-- Ikon untuk siswa -->
-                <i class="fas fa-user-graduate fa-3x mb-3"></i>
-                <div class="card-title fw-bolder">80</div>
-                <div class="card-description fw-bold">Siswa</div>
-              </div>
-            </div>
+          <div class="row mt-5 d-flex justify-content-center">
+              @foreach($jumlahs as $jumlah)
+                  <div class="col-md-2">
+                      <div class="card text-center mt-2" data-aos="zoom-in">
+                          <div class="card-body">
+                              <img src="/image/{{ $jumlah->image }}" alt="" class="img-fluid" width="80">
+                              <div class="card-title fw-bolder">{{ $jumlah->title }}</div>
+                              <div class="card-description fw-bold">{{ $jumlah->description }}</div>
+                          </div>
+                      </div>
+                  </div>
+              @endforeach
           </div>
-          <div class="col-md-2">
-            <div class="card text-center mt-2" data-aos="zoom-in">
-              <div class="card-body">
-                <!-- Ikon untuk kelas -->
-                <i class="fas fa-school fa-3x mb-3"></i>
-                <div class="card-title fw-bolder">8</div>
-                <div class="card-description fw-bold">Kelas</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="card text-center mt-2" data-aos="zoom-in">
-              <div class="card-body">
-                <!-- Ikon untuk tenaga pendidik -->
-                <i class="fas fa-user-tie fa-3x mb-3"></i>
-                <div class="card-title fw-bolder">2</div>
-                <div class="card-description fw-bold">Tenaga Pendidik</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-   </div>   
+  </div>
+  
     <!-- jumlah -->
 
    <!-- sambutan -->
@@ -219,77 +193,25 @@
         <div class="title-container text-center p-4">
           <h2 class="fw-bold">Sambutan Kepala Sekolah</h2>
         </div>
-        <div class="row mt-5">
-          <div class="col-md-4" data-aos="fade-right">
-            <img src="assets/img/4.jpg.jpeg" alt=""  class="img-small">
+        <div class="sambutan mt-5">
+          <div class="container">
+              <div class="row mt-5">
+                  <div class="col-md-4" data-aos="fade-right">
+                      <img src="{{ asset('image/' . $sambutan->logo) }}" alt="{{ $sambutan->name }}" class="img-small">
+                  </div>
+                  <div class="col-md-6" data-aos="fade-left">
+                      <p>
+                          {{ $sambutan->description }}
+                      </p>
+                  </div>
+              </div>
           </div>
-          <div class="col-md-6" data-aos="fade-left">
-            <p>Assalamualikum wr wb <br>
-              Bentuk text ada disebelah kanan
-              mau diisi sama sambutan kepala sekolah atau visi misi juga boleh
-              visi misi aja ga si huhu. Prestasi yang diraih :
-          </p>
-          </div>
-        </div>
+      </div>
       </div>
     </div>
     <!-- sambutan -->
 
-    <!-- berita -->
-  <div class="container small-card mt-5">
-    <div class="row">
-      <div class="title-container text-center p-4">
-        <h2 class="fw-bold">Berita</h2>
-      </div>
-      <div class="row mt-5">
-      <!-- Berita 1 -->
-      <div class="col-md-4 news-item" data-aos="fade-up">
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200" class="card-img-top news-img" alt="Berita 1">
-          <div class="card-body">
-            <div class="news-date">17 September 2024</div>
-            <h5 class="news-title">Judul Berita 1</h5>
-            <p class="card-text">Deskripsi singkat berita 1 yang memberikan gambaran umum mengenai isi berita...</p>
-            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
-          </div>
-        </div>
-      </div>
-     
 
-      <!-- Berita 2 -->
-      <div class="col-md-4 news-item" data-aos="fade-up">
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200" class="card-img-top news-img" alt="Berita 2">
-          <div class="card-body">
-            <div class="news-date">15 September 2024</div>
-            <h5 class="news-title">Judul Berita 2</h5>
-            <p class="card-text">Deskripsi singkat berita 2 yang memberikan gambaran umum mengenai isi berita...</p>
-            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Berita 3 -->
-      <div class="col-md-4 news-item" data-aos="fade-up">
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200" class="card-img-top news-img" alt="Berita 3">
-          <div class="card-body">
-            <div class="news-date">10 September 2024</div>
-            <h5 class="news-title">Judul Berita 3</h5>
-            <p class="card-text">Deskripsi singkat berita 3 yang memberikan gambaran umum mengenai isi berita...</p>
-            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    
-    <!-- Tombol untuk Lihat Semua Berita -->
-    <div class="text-center mt-4">
-      <a href="/berita" class="btn btn-primary">Lihat Semua Berita</a>
-    </div>
-  </div>
-  <!-- end berita -->
 
     <!-- ppdb -->
     <div class="ppdb mt-5"> 
@@ -297,16 +219,25 @@
           <div class="title-container">
           <h2 class="text-center fw-bold">Alur PPDB</h2>
       </div>
-          <div class="row mt-5">
-            <div class="col-md-12">
-              <div class="img-ppdb">
-                <div class=""></div>
-                <div class="mt-2" data-aos="zoom-in" style="margin-left: -100px;">
-                  <img src="/assets/img/g1.jpg" alt="" class="img-fluid">
+      <div class="ppdb mt-5"> 
+        <div class="container ">
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <div class="img-ppdb text-center"> 
+                        @if($ppdb) 
+                            <h5 class="mt-3">{{ $ppdb->name }}</h5> 
+                            <a href="{{ asset('image/' . $ppdb->logo) }}" data-lightbox="ppdb" data-title="{{ $ppdb->name }}">
+                              <img src="{{ asset('image/' . $ppdb->logo) }}" alt="{{ $ppdb->name }}" class="img-fluid">
+                            </a>
+                            <p>{{ $ppdb->description }}</p> 
+                        @else
+                            <p>Tidak ada informasi PPDB yang tersedia.</p>
+                        @endif
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
+        </div>
+    </div>
       </div>
     </div>
     <!-- end ppdb -->
@@ -317,39 +248,28 @@
         <div class="title-container">
             <h2 class="text-center fw-bold">Galeri</h2>
         </div>
-        <div class="row mt-5">
-            <div class="col-md-12">
-                <div class="mansory galeri-container">
-                    <div class="mansory-sizer"></div>
-                    <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
-                        <img src="/assets/img/g1.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
-                        <img src="/assets/img/g3.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
-                        <img src="/assets/img/g2.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
-                        <img src="/assets/img/g5.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
-                        <img src="/assets/img/g4.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
-                        <img src="/assets/img/g6.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
-                        <img src="/assets/img/g7.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
-                        <img src="/assets/img/g8.jpg" alt="" class="img-fluid">
+        <div class="galeri-us mt-5">
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-md-12">
+                        <div class="mansory galeri-container">
+                            <div class="mansory-sizer"></div>
+                            @foreach ($galeri as $galeri)
+                                <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
+                                    <!-- Tambahkan <a> dan data-lightbox -->
+                                    <a href="{{ asset('image/' . $galeri->image) }}" data-lightbox="galeri" data-title="{{ $galeri->title }}">
+                                        <img src="{{ asset('image/' . $galeri->image) }}" alt="{{ $galeri->title }}" class="img-fluid">
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
   <!-- end galeri us -->
 
@@ -479,5 +399,14 @@
     <script src="/assets/vendor/aos/dist/aos.js"></script>
     <script src="/assets/vendor/isotope/isotope.pkgd.min.js"></script>
     <script src="assets/js/app.js"></script>
+    <script src="assets/lightbox/lightbox (1).js"></script>
+    <script>
+      lightbox.option({
+          'fadeDuration': 200,
+          'resizeDuration': 200,
+          'wrapAround': true,
+          'alwaysShowClose': true // Menampilkan tanda silang untuk kembali
+      });
+  </script>
   </body>
 </html>
