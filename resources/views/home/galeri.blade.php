@@ -24,7 +24,7 @@
   <div class="container">
     <a class="navbar-brand fw-bold" href="#"
     >
-    <img src="/image/logosd.png" alt="" style="width: 40px; height: 40px; margin-right: 10px;">
+    <img src="{{ asset('image/' . $contact->logo) }}" alt="Logo Sekolah" style="width: 40px; height: 40px; margin-right: 10px;">
     <span class="primary"></span>SD N Bulupayung 02</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -118,51 +118,48 @@
           <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-3">
-              <h4 class="fw-bold">SD N Bulupayung 02</h4>
-              <p>jgbfjjbhs bv jhsfsvhbh bsn sjgjsgb vsjfhsf 
-                 bhfvhs sh cs
-                 jh bshjhs fhsjs
-                 sbjgsugyf
+              <h4 class="fw-bold">{{ $contact->name }}</h4>
+              <p>{{ $contact->description }}
               </p>
-              <strong>Phone</strong> : <span>+62829301929201</span>
+              <strong>Phone</strong> : <span>{{ $contact->telepon }}</span>
               <br/>
-              <strong>Email</strong> : <span>sdn@gmail.com</span>
+              <strong>Email</strong> : <span>{{ $contact->email }}</span>
             </div>
             <div class="col-md-2">
               <h4 class="fw-bold">UseFull link</h4>
               <ul class="list-group list-unstyled">
                 <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
+                  <a href="/" class="text-decoration-none text-white">
                   <i class="fa fa-chevron-right primary"></i>
                   Home
                   </a>
                 </li>
                 <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
+                  <a href="tentangkami" class="text-decoration-none text-white">
                   <i class="fa fa-chevron-right primary"></i>
                   Profile
                   </a>
                 </li>
                 <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
+                  <a href="berita" class="text-decoration-none text-white">
                   <i class="fa fa-chevron-right primary"></i>
                   Berita
                   </a>
                 </li>
                 <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
+                  <a href="galeri" class="text-decoration-none text-white">
                   <i class="fa fa-chevron-right primary"></i>
                   Galeri
                   </a>
                 </li>
                 <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
+                  <a href="ppdb" class="text-decoration-none text-white">
                   <i class="fa fa-chevron-right primary"></i>
                   PPDB
                   </a>
                 </li>
                 <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
+                  <a href="contact" class="text-decoration-none text-white">
                   <i class="fa fa-chevron-right primary"></i>
                   Contact
                   </a>
@@ -207,7 +204,7 @@
               <a href="" class="mx-2">
                 <i class="fab fa-facebook fa-2x"></i>
               </a>
-              <a href="" class="mx-2">
+              <a href="https://youtu.be/J-X3yrUcFsc?si=TCwjJoWaFL4l3KYA" class="mx-2">
                 <i class="fab fa-youtube fa-2x"></i>
               </a>
               <a href="" class="mx-2">

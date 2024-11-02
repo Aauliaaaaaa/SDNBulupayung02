@@ -68,3 +68,4 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::get('ppdb', [PpdbController::class, 'index']);
     Route::put('ppdb/{id}', [PpdbController::class, 'update']);
 });
+

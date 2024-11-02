@@ -9,6 +9,8 @@
      />
      <!-- fontawesome -->
       <link rel="stylesheet" href="/assets/vendor/fontawesome/fontawesome-free-5.15.4-web/fontawesome-free-5.15.4-web/css/all.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
       <!-- aos -->
        <link rel="stylesheet" href="/assets/vendor/aos/dist/aos.css">
     <!-- Custom CSS -->
@@ -91,51 +93,31 @@
                                         <h4 class="fw-bolder">Location</h4>
                                         <p class="ms-5">{{ $contact->alamat }}</p>
                                     </div>
+                                    <div class="col-md-4">
+                                      <a href="mailto:{{ $contact->email }}" class="btn btn-outline-primary d-flex align-items-center p-3 text-decoration-none text-dark" style="border-radius: 8px;">
+                                        <i class="fa fa-envelope fa-2x primary me-3"></i>
+                                        <div>
+                                          <h5 class="mb-0 fw-bolder">Email</h5>
+                                          <p class="mb-0">{{ $contact->email }}</p>
+                                        </div>
+                                      </a>
+                                    </div>                                  
                                     <div class="col-md-3">
-                                        <i class="fa fa-envelope fa-2x primary float-start me-4"></i>
-                                        <h4 class="fw-bolder">Email</h4>
-                                        <p class="ms-5">{{ $contact->email }}</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <i class="fa fa-phone-alt fa-2x primary float-start me-4"></i>
-                                        <h4 class="fw-bolder">Telephone</h4>
-                                        <p class="ms-5">{{ $contact->telepon }}</p>
-                                    </div>
+                                      <a href="https://wa.me/{{ str_replace('+', '', $contact->telepon) }}" target="_blank" class="btn btn-outline-success d-flex align-items-center p-3 text-decoration-none text-dark" style="border-radius: 8px;">
+                                        <i class="fab fa-whatsapp fa-2x me-3" style="color: #25D366;"></i>
+                                        <div>
+                                          <h5 class="mb-0 fw-bolder">WhatsApp</h5>
+                                          <p class="mb-0">{{ $contact->telepon }}</p>
+                                        </div>
+                                      </a>
+                                    </div>                                                                  
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row mt-5">
-                <div class="col-md-12">
-                    <div class="card border-0 shadow">
-                        <div class="card-body p-4">
-                            <div class="row mt-4">
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Nama Anda">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Email Anda">
-                                </div>
-                            </div>
-                            <div class="row mt-4">
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" placeholder="Subject"></input>
-                                </div>
-                            </div>
-                            <div class="row mt-4">
-                                <div class="col-md-12">
-                                   <textarea name="" id="" cols="30" class="form-control" placeholder="Your massage"></textarea>
-                                </div>
-                            </div>
-                            <row class="mt-4">
-                                <button type="submit" class="btn btn-submit">Kirim Pesan</button>
-                            </row>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
         </div>
      </div>
     <!-- end contact -->
@@ -161,37 +143,37 @@
               <h4 class="fw-bold">UseFull link</h4>
               <ul class="list-group list-unstyled">
                 <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
+                  <a href="/" class="text-decoration-none text-white">
                   <i class="fa fa-chevron-right primary"></i>
                   Home
                   </a>
                 </li>
                 <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
+                  <a href="tentangkami" class="text-decoration-none text-white">
                   <i class="fa fa-chevron-right primary"></i>
                   Profile
                   </a>
                 </li>
                 <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
+                  <a href="berita" class="text-decoration-none text-white">
                   <i class="fa fa-chevron-right primary"></i>
                   Berita
                   </a>
                 </li>
                 <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
+                  <a href="galeri" class="text-decoration-none text-white">
                   <i class="fa fa-chevron-right primary"></i>
                   Galeri
                   </a>
                 </li>
                 <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
+                  <a href="ppdb" class="text-decoration-none text-white">
                   <i class="fa fa-chevron-right primary"></i>
                   PPDB
                   </a>
                 </li>
                 <li class="list-item">
-                  <a href="" class="text-decoration-none text-white">
+                  <a href="contact" class="text-decoration-none text-white">
                   <i class="fa fa-chevron-right primary"></i>
                   Contact
                   </a>
@@ -236,7 +218,7 @@
               <a href="" class="mx-2">
                 <i class="fab fa-facebook fa-2x"></i>
               </a>
-              <a href="" class="mx-2">
+              <a href="https://youtu.be/J-X3yrUcFsc?si=TCwjJoWaFL4l3KYA" class="mx-2">
                 <i class="fab fa-youtube fa-2x"></i>
               </a>
               <a href="" class="mx-2">

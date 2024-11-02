@@ -43,12 +43,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/lte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="{{ auth()->user()->photo ? asset('uploads/' . auth()->user()->photo) : '/lte/dist/img/user2-160x160.jpg' }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ Auth::user()->email;}}</a>
+            <a href="#" class="d-block">{{ Auth::user()->email }}</a>
         </div>
-      </div>
+    </div>
+    
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -103,12 +104,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/beritas" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Beritas</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="/admin/ppdb" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data PPDB</p>
@@ -122,38 +117,59 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="/admin/visimisi" class="nav-link">
-              <i class="nav-icon fas fa-bullseye"></i>
-              <p>
-                Visi Misi
-              </p>
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p>
+                    Data Profil
+                    <i class="right fas fa-angle-left"></i>
+                </p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="/admin/visi" class="nav-link">
-              <i class="nav-icon fas fa-bullseye"></i>
-              <p>
-                Visi
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/admin/misis" class="nav-link">
-              <i class="nav-icon fas fa-bullseye"></i>
-              <p>
-                Misi
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/admin/about" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>
-                Tentang
-              </p>
-            </a>
-          </li>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="/admin/about" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Tentang Kami</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/visi" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Visi</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/misis" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Misi</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/sambutan" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Data Sambutan</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+          <a href="/admin/beritas" class="nav-link">
+            <i class="nav-icon fas fa-newspaper"></i>
+            <p>Data Berita</p>
+          </a>
+        </li> 
+        <li class="nav-item">
+          <a href="/admin/galeris" class="nav-link">
+            <i class="nav-icon fas fa-images"></i>
+            <p>Data Galeri</p>
+          </a>
+        </li>  
+        <li class="nav-item">
+          <a href="/admin/ppdb" class="nav-link">
+            <i class="nav-icon fas fa-user-plus"></i>
+            <p>Data PPDB</p>
+          </a>
+        </li>     
           <li class="nav-item">
             <a href="/admin/contact" class="nav-link">
               <i class="nav-icon fas fa-phone"></i>

@@ -50,11 +50,13 @@ class HomeController extends Controller
       $about = About::first();
       $sambutan = Sambutan::first();
       $teams = Team::all();
+      $contact = Contact::first();
       
        return view('home.tentangkami', compact(
          'about',
          'sambutan',
          'teams',
+         'contact',
        ));
     }
 
@@ -63,47 +65,57 @@ class HomeController extends Controller
       $visi = Visi::first();
       $misi = Misi::all();
       $teams = Team::all();
+      $contact = Contact::first();
 
        return view('home.visimisi', compact(
         'visi',
         'misi',
         'teams',
+        'contact',
        ));
     }
 
     public function sambutan()
     {
       $sambutan = Sambutan::first();
+      $contact = Contact::first();
 
        return view('home.sambutan', compact(
          'sambutan',
+         'contact',
        ));
     }
 
     public function galeri()
     {
       $galeri = Galeri::all();
+      $contact = Contact::first();
 
        return view('home.galeri', compact(
          'galeri',
+         'contact',
        ));
     }
 
     public function ppdb()
     {
       $ppdb = Ppdb::first();
+      $contact = Contact::first();
 
        return view('home.ppdb', compact(
          'ppdb',
+         'contact',
        ));
     }
 
     public function berita()
     {
       $beritas = Berita::all();
+      $contact = Contact::first();
 
        return view('home.berita', compact(
          'beritas',
+         'contact',
        ));
     }
     
