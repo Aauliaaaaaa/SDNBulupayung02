@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use Illuminate\Http\Request;
+use Parsedown;
 
 class BeritaController extends Controller
 {
@@ -12,8 +13,13 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        $beritas = Berita::all(); 
+        $beritas = Berita::all();
 
+        $parsedown = new Parsedown();
+        foreach ($beritas as $berita) {
+            $berita->description = $parsedown->text($berita->description);
+        }
+        
         return view('berita.index', compact('beritas'));
     }
 
@@ -53,13 +59,17 @@ class BeritaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show( $id)
+    public function show($id)
     {
         // Ambil berita berdasarkan ID
-    $berita = Berita::findOrFail($id); // Mengambil data berita
+        $berita = Berita::findOrFail($id);
 
-    // Mengembalikan tampilan dengan data berita
-    return view('berita.show', compact('berita'));
+        // Parsing Markdown untuk deskripsi
+        $parsedown = new Parsedown();
+        $berita->description = $parsedown->text($berita->description);
+
+        // Mengembalikan tampilan dengan data berita
+        return view('berita.show', compact('berita'));
     }
 
     /**
@@ -88,8 +98,7 @@ class BeritaController extends Controller
             $imageName = $image->getClientOriginalName();
             $image->move($destinationPath, $imageName);
             $input['image'] = $imageName;
-        }
-        else{
+        } else {
             unset($input['image']);
         }
 
@@ -103,8 +112,8 @@ class BeritaController extends Controller
      */
     public function destroy(Berita $berita)
     {
-       $berita->delete(); 
+        $berita->delete();
 
-       return redirect('/admin/beritas')->with('message', 'Data berhasil dihapus');
+        return redirect('/admin/beritas')->with('message', 'Data berhasil dihapus');
     }
 }

@@ -83,7 +83,7 @@
                       <div class="card-body">
                           <div class="news-date">{{ \Carbon\Carbon::parse($berita->created_at)->format('d F Y') }}</div>
                           <h5 class="news-title">{{ $berita->title }}</h5>
-                          <p class="card-text">{{ Str::limit($berita->description, 100) }}</p>
+                          <p class="card-text">{!! Str::limit($berita->description, 100) !!}</p>
                           <a href="{{ route('berita.show', $berita->id) }}" class="btn btn-primary">Baca Selengkapnya</a>
                       </div>
                   </div>
@@ -158,23 +158,6 @@
                   </a>
                 </li>
               </ul>
-            </div>
-            <div class="col-md-3">
-              <h4 class="fw-bold">Ikuti Berita Kami</h4>
-              <p>abcf fhana jshei fijscn skjhf iu n jvs udh</p>
-              <div class="input-group">
-                <input 
-                type="text" 
-                class="form-control"
-                placeholder="emailanda@gmail.com" 
-                >
-                <button 
-                class="btn btn-subscribe" 
-                type="button" 
-                id="inputGroupFileAddon04">
-                Subscribe
-              </button>
-              </div>
             </div>
           </div>
         </div>

@@ -9,7 +9,7 @@
                 <div class="text-muted mb-4" style="font-size: 0.9rem;">{{ \Carbon\Carbon::parse($berita->created_at)->format('d F Y') }}</div>
                 
                 <p class="card-text text-center" style="line-height: 1.8; color: #555;">
-                    {{ $berita->description }}
+                    {!! $berita->description !!}
                 </p>
                 
                 <div class="text-center mt-4">
