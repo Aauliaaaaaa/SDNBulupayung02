@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -30,6 +31,34 @@ class AuthController extends Controller
             'loginError' => 'Email atau password salah'
         ]);
     }
+
+    public function editProfile()
+{
+    $user = Auth::user();
+    return view('auth.profile', compact('user'));
+}
+
+public function updateProfile(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email,' . Auth::id(),
+        'password' => 'nullable|min:6|confirmed'
+    ]);
+
+    $user = Auth::user();
+    $user->name = $request->input('name');
+    $user->email = $request->input('email');
+
+    if ($request->filled('password')) {
+        $user->password = bcrypt($request->input('password'));
+    }
+
+    $user->save();
+
+    return redirect()->route('profile.edit')->with('success', 'Profil berhasil diperbarui.');
+}
+
 
     public function logout()
     {

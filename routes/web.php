@@ -67,5 +67,9 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
 
     Route::get('ppdb', [PpdbController::class, 'index']);
     Route::put('ppdb/{id}', [PpdbController::class, 'update']);
+
+    Route::get('/profile', [AuthController::class, 'editProfile'])->name('profile.edit');
+    Route::put('/profile', [AuthController::class, 'updateProfile'])->name('profile.update');
+  
 });
 

@@ -46,9 +46,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <img src="{{ auth()->user()->photo ? asset('uploads/' . auth()->user()->photo) : '/lte/dist/img/user2-160x160.jpg' }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">{{ Auth::user()->email }}</a>
+            <a href="{{ route('profile.edit') }}" class="d-block">Hallo {{ Auth::user()->name }}!</a>
         </div>
-    </div>
+      </div>
+    
     
 
       <!-- Sidebar Menu -->
