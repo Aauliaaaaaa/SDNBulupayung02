@@ -14,10 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
-            'name'=> 'Aulia',
-            'email' => 'auliazahwah8@gmail.com',
-            'password' => Hash::make('123')
+       $this->call([
+            UserSeeder::class,
+            AboutSeeder::class,
+            ContactSeeder::class,
+            PpdbSeeder::class,
+            VisiSeeder::class,
+            SambutanSeeder::class
         ]);
     }
 }
