@@ -72,7 +72,7 @@
   <div class="carousel-inner">
       @foreach ($sliders as $index => $slider)
           <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-              <img src="{{ asset ('image/' . $slider->image) }}" class="d-block w-100 carausel-img" alt="{{ $slider->title }}">
+              <img src="{{ asset ('image/' . $slider->image) }}" class="d-block w-100 carousel-img" alt="{{ $slider->title }}">
               <div class="carousel-caption d-none d-md-block">
                   <h5>{{ $slider->title }}</h5>
                   <p>{{ $slider->description }}</p>
@@ -248,6 +248,14 @@
         <div class="title-container">
             <h2 class="text-center fw-bold">Galeri</h2>
         </div>
+
+         <!-- Tombol Filter Kategori -->
+         <div class="text-center my-3">
+            <button class="btn btn-primary filter-btn" data-filter="all">All</button>
+            <button class="btn btn-primary filter-btn" data-filter="kegiatan">Kegiatan Siswa</button>
+            <button class="btn btn-primary filter-btn" data-filter="lomba">Lomba</button>
+        </div>
+
         <div class="galeri-us mt-5">
             <div class="container">
                 <div class="row mt-5">
@@ -262,13 +270,13 @@
                                     </a>
                                 </div>
                             @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 
 
   <!-- end galeri us -->

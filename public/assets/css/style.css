@@ -1,5 +1,7 @@
-.carousel.img {
-   max-height: 100vh; 
+.carousel-img {
+    max-height: 80vh;
+    width: 100%; 
+    object-fit: cover;
 }
 
 .carousel-caption {
@@ -78,6 +80,10 @@
 
 a{
     color: white;
+}
+
+.filter-btn {
+    margin: 5px;
 }
 
 .social-links{

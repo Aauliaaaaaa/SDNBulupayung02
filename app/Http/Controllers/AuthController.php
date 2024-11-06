@@ -33,31 +33,31 @@ class AuthController extends Controller
     }
 
     public function editProfile()
-{
-    $user = Auth::user();
-    return view('auth.profile', compact('user'));
-}
-
-public function updateProfile(Request $request)
-{
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|email|unique:users,email,' . Auth::id(),
-        'password' => 'nullable|min:6|confirmed'
-    ]);
-
-    $user = Auth::user();
-    $user->name = $request->input('name');
-    $user->email = $request->input('email');
-
-    if ($request->filled('password')) {
-        $user->password = bcrypt($request->input('password'));
+    {
+        $user = Auth::user();
+        return view('auth.profile', compact('user'));
     }
 
-    $user->save();
+    public function updateProfile(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . Auth::id(),
+            'password' => 'nullable|min:6|confirmed'
+        ]);
 
-    return redirect()->route('profile.edit')->with('success', 'Profil berhasil diperbarui.');
-}
+        $user = Auth::user();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+
+        if ($request->filled('password')) {
+            $user->password = bcrypt($request->input('password'));
+        }
+
+        $user->save();
+
+        return redirect()->route('profile.edit')->with('success', 'Profil berhasil diperbarui.');
+    }
 
 
     public function logout()
@@ -66,7 +66,4 @@ public function updateProfile(Request $request)
 
         return redirect()->route('login')->with('success', 'Anda berhasil logout');
     }
-
-    
 }
-
