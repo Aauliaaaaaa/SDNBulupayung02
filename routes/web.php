@@ -24,6 +24,7 @@ Route::get('/tentangkami', [HomeController::class, 'tentangkami']);
 Route::get('/visimisi', [HomeController::class, 'visimisi']);
 Route::get('/sambutan', [HomeController::class, 'sambutan']);
 Route::get('/galeri', [HomeController::class, 'galeri']);
+
 Route::get('/ppdb', [HomeController::class, 'ppdb']);
 Route::get('/berita', [HomeController::class, 'berita']);
 Route::get('/contact', [HomeController::class, 'contact']);
@@ -36,7 +37,6 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
 
-
 //dashboard
 Route::prefix('/admin')->middleware('auth')->group(function () {
 
@@ -48,7 +48,6 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::resource('jumlahs', JumlahController::class);
     Route::resource('teams', TeamController::class);
     Route::resource('misis', MisiController::class);
-
    
     Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
 

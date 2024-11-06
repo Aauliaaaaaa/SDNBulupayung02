@@ -8,7 +8,7 @@
     <a href="/admin/galeris" class="btn btn-primary mb-3">Kembali</a>
     <div class="row">
         <div class="col-md-12">
-            <form action="{{ route('galeris.store') }}"  method="POST" enctype="multipart/form-data" >
+            <form action="{{ route('galeris.store') }}"  method="POST" enctype="multipart/form-data">
                @csrf 
                <div class="form-group">
                     <label for="">Judul</label>
@@ -22,6 +22,16 @@
                     <textarea name="description" id="" cols="30" rows="10" class="form-control" placeholder="Deskripsi"></textarea>
                </div>
                @error('description')
+               <small style="color: red">{{ $message }}</small>
+               @enderror
+               <div class="form-group">
+                    <label for="">Kategori</label>
+                    <select name="category" class="form-control">
+                        <option value="kegiatan">Kegiatan Siswa</option>
+                        <option value="lomba">Lomba</option>
+                    </select>
+               </div>
+               @error('category')
                <small style="color: red">{{ $message }}</small>
                @enderror
                <div class="form-group">

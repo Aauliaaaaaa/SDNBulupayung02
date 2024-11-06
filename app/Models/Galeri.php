@@ -10,6 +10,6 @@ class Galeri extends Model
     use HasFactory;
 
     protected $fillable =[
-        'title', 'description', 'image'
+        'title', 'description', 'image', 'category'
     ];
 }

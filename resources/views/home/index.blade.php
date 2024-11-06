@@ -248,14 +248,7 @@
         <div class="title-container">
             <h2 class="text-center fw-bold">Galeri</h2>
         </div>
-
-         <!-- Tombol Filter Kategori -->
-         <div class="text-center my-3">
-            <button class="btn btn-primary filter-btn" data-filter="all">All</button>
-            <button class="btn btn-primary filter-btn" data-filter="kegiatan">Kegiatan Siswa</button>
-            <button class="btn btn-primary filter-btn" data-filter="lomba">Lomba</button>
-        </div>
-
+      
         <div class="galeri-us mt-5">
             <div class="container">
                 <div class="row mt-5">
@@ -270,13 +263,13 @@
                                     </a>
                                 </div>
                             @endforeach
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>     
+    </div>
+</div>
 
 
   <!-- end galeri us -->

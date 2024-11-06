@@ -8,9 +8,9 @@
     <a href="/admin/galeris" class="btn btn-primary mb-3">Kembali</a>
     <div class="row">
         <div class="col-md-12">
-            <form action="{{ route('galeris.update', $galeri->id) }}"  method="POST" enctype="multipart/form-data" >
+            <form action="{{ route('galeris.update', $galeri->id) }}" method="POST" enctype="multipart/form-data">
                 @method('PUT')
-               @csrf 
+                @csrf 
                <div class="form-group">
                     <label for="">Judul</label>
                     <input type="text" class="form-control" name="title" placeholder="Judul" value="{{ $galeri->title }}">
@@ -23,6 +23,16 @@
                     <textarea name="description" id="" cols="30" rows="10" class="form-control" placeholder="Deskripsi">{{ $galeri->description }}</textarea>
                </div>
                @error('description')
+               <small style="color: red">{{ $message }}</small>
+               @enderror
+               <div class="form-group">
+                    <label for="">Kategori</label>
+                    <select name="category" class="form-control">
+                        <option value="kegiatan" {{ $galeri->category == 'kegiatan' ? 'selected' : '' }}>Kegiatan Siswa</option>
+                        <option value="lomba" {{ $galeri->category == 'lomba' ? 'selected' : '' }}>Lomba</option>
+                    </select>
+               </div>
+               @error('category')
                <small style="color: red">{{ $message }}</small>
                @enderror
                <img src="/image/{{ $galeri->image }}" alt="" class="img-fluid">

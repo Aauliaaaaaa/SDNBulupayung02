@@ -10,11 +10,19 @@ class GaleriController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $galeris = Galeri::all(); 
-
-        return view('galeri.index', compact('galeris'));
+        // Ambil kategori dari parameter URL
+        $category = $request->get('category', 'all'); // Default filter ke 'all'
+    
+        // Jika kategori bukan 'all', filter berdasarkan kategori
+        if ($category == 'all') {
+            $galeri = Galeri::all();
+        } else {
+            $galeri = Galeri::where('category', $category)->get();
+        }
+    
+        return view('galeri.index', compact('galeri'));
     }
 
     /**
@@ -34,19 +42,20 @@ class GaleriController extends Controller
             'title' => 'required',
             'description' => 'required',
             'image' => 'required|image',
+            'category' => 'required', // Tambahkan validasi kategori
         ]);
-
+    
         $input = $request->all();
-
+    
         if ($image = $request->file('image')) {
             $destinationPath = 'image/';
             $imageName = $image->getClientOriginalName();
             $image->move($destinationPath, $imageName);
             $input['image'] = $imageName;
         }
-
+    
         Galeri::create($input);
-
+    
         return redirect('/admin/galeris')->with('message', 'Data berhasil ditambahkan');
     }
 
@@ -75,22 +84,22 @@ class GaleriController extends Controller
             'title' => 'required',
             'description' => 'required',
             'image' => 'image',
+            'category' => 'required', // Validasi kategori
         ]);
-
+    
         $input = $request->all();
-
+    
         if ($image = $request->file('image')) {
             $destinationPath = 'image/';
             $imageName = $image->getClientOriginalName();
             $image->move($destinationPath, $imageName);
             $input['image'] = $imageName;
-        }
-        else{
+        } else {
             unset($input['image']);
         }
-
+    
         $galeri->update($input);
-
+    
         return redirect('/admin/galeris')->with('message', 'Data berhasil diedit');
     }
 
@@ -103,4 +112,5 @@ class GaleriController extends Controller
 
        return redirect('/admin/galeris')->with('message', 'Data berhasil dihapus');
     }
+
 }
