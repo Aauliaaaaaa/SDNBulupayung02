@@ -48,7 +48,7 @@
 .img-ppdb {
     display: block;
     margin: 0 auto;
-    max-width: 50%;
+    max-width: 45%;
     height: auto;
     text-align: center;
 }
@@ -93,6 +93,11 @@ a{
 
 .bg-draker{
     background: #111;
+}
+
+.category-buttons button.active {
+    background-color: #007bff; 
+    color: white;
 }
 
 .btn-subscribe, 

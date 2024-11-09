@@ -248,29 +248,26 @@
         <div class="title-container">
             <h2 class="text-center fw-bold">Galeri</h2>
         </div>
-      
-        <div class="galeri-us mt-5">
-            <div class="container">
-                <div class="row mt-5">
-                    <div class="col-md-12">
-                        <div class="mansory galeri-container">
-                            <div class="mansory-sizer"></div>
-                            @foreach ($galeri as $galeri)
-                                <div class="mansory-item mt-2 py-2 galeri-item" data-aos="zoom-in-up">
-                                    <!-- Tambahkan <a> dan data-lightbox -->
-                                    <a href="{{ asset('image/' . $galeri->image) }}" data-lightbox="galeri" data-title="{{ $galeri->title }}">
-                                        <img src="{{ asset('image/' . $galeri->image) }}" alt="{{ $galeri->title }}" class="img-fluid">
-                                    </a>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>     
+
+        <div class="container my-4 text-center">
+          <button class="btn btn-primary mx-1 filter-btn" data-category="all">Semua</button>
+          <button class="btn btn-primary mx-1 filter-btn" data-category="kegiatan">Kegiatan Siswa</button>
+          <button class="btn btn-primary mx-1 filter-btn" data-category="lomba">Lomba</button>
+        </div>
+
+        <div class="container">
+          <div class="row">
+              @foreach ($galeri as $item)
+                  <div class="col-md-4 galeri-item" data-category="{{ $item->category }}">
+                      <a href="{{ asset('image/' . $item->image) }}" data-lightbox="galeri" data-title="{{ $item->title }}">
+                          <img src="{{ asset('image/' . $item->image) }}" alt="{{ $item->title }}" class="img-fluid mb-3">
+                      </a>
+                  </div>
+              @endforeach
+          </div>
+        </div>
     </div>
 </div>
-
 
   <!-- end galeri us -->
 
@@ -388,6 +385,28 @@
           'resizeDuration': 200,
           'wrapAround': true,
           'alwaysShowClose': true // Menampilkan tanda silang untuk kembali
+      });
+  </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          const filterButtons = document.querySelectorAll('.filter-btn');
+          const galleryItems = document.querySelectorAll('.galeri-item');
+  
+          filterButtons.forEach(button => {
+              button.addEventListener('click', () => {
+                  const category = button.getAttribute('data-category');
+  
+                  galleryItems.forEach(item => {
+                      const itemCategory = item.getAttribute('data-category');
+                      
+                      if (category === 'all' || itemCategory === category) {
+                          item.style.display = 'block'; // Tampilkan item
+                      } else {
+                          item.style.display = 'none'; // Sembunyikan item
+                      }
+                  });
+              });
+          });
       });
   </script>
   </body>

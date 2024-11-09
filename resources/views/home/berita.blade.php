@@ -83,7 +83,7 @@
                       <div class="card-body">
                           <div class="news-date">{{ \Carbon\Carbon::parse($berita->created_at)->format('d F Y') }}</div>
                           <h5 class="news-title">{{ $berita->title }}</h5>
-                          <p class="card-text">{!! \Illuminate\Support\Str::markdown(Str::limit($berita->description, 100)) !!}</p>
+                          <p class="card-text">{!! Str::markdown(Str::limit($berita->description, 100)) !!}</p> 
                           <a href="{{ route('berita.show', $berita->id) }}" class="btn btn-primary">Baca Selengkapnya</a>
                       </div>
                   </div>
