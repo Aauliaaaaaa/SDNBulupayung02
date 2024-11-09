@@ -16,6 +16,7 @@ use App\Http\Controllers\MisiController;
 use App\Http\Controllers\VisiController;
 use App\Http\Controllers\VisiMisiController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 //home
@@ -36,6 +37,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
+
 
 //dashboard
 Route::prefix('/admin')->middleware('auth')->group(function () {

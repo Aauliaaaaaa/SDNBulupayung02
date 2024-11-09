@@ -12,17 +12,18 @@ class GaleriController extends Controller
      */
     public function index(Request $request)
     {
-        // Ambil kategori dari parameter URL
-        $category = $request->get('category', 'all'); // Default filter ke 'all'
+            // Ambil kategori dari parameter URL
+    $category = $request->get('category', 'all'); // Default filter ke 'all'
     
-        // Jika kategori bukan 'all', filter berdasarkan kategori
-        if ($category == 'all') {
-            $galeri = Galeri::all();
-        } else {
-            $galeri = Galeri::where('category', $category)->get();
-        }
+    // Jika kategori bukan 'all', filter berdasarkan kategori
+    if ($category == 'all') {
+        $galeri = Galeri::all();
+    } else {
+        $galeri = Galeri::where('category', $category)->get();
+    }
     
-        return view('galeri.index', compact('galeri'));
+    return view('galeri.index', compact('galeri'));
+        
     }
 
     /**
