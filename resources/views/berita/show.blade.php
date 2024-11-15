@@ -25,6 +25,9 @@
                     <h1 class="card-title font-weight-bold mb-3" style="font-size: 2rem; color: #333;">{{ $berita->title }}</h1>
                     <div class="text-muted mb-4" style="font-size: 0.9rem;">{{ \Carbon\Carbon::parse($berita->created_at)->format('d F Y') }}</div>
                     
+                      <!-- Garis pemisah -->
+                     <hr style="border: 1px solid #ccc; margin: 20px 0;">
+
                     <p class="card-text text-center" style="line-height: 1.8; color: #ffffff;">
                         {!! $berita->description !!}
                     </p>

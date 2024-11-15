@@ -17,11 +17,11 @@
                 @csrf
                 <div class="form-group">
                     <label for="">Judul</label>
-                    <input type="text" class="form-control" name="name" placeholder="Nama Sekolah" value="{{ $ppdb->name }}">
+                    <textarea class="form-control" name="name" placeholder="Nama Sekolah">{{ $ppdb->name }}</textarea>
                     @error('name')
                         <small style="color: red">{{ $message }}</small>
                     @enderror
-                </div>
+                </div>                
 
                 <img src="/image/{{ $ppdb->logo }}" alt="" class="img-fluid">
                 <div class="form-group">

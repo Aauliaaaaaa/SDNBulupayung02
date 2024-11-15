@@ -81,7 +81,7 @@
             <div class="col-md-12">
                 <div class="img-ppdb text-center"> <!-- Menambahkan class text-center untuk perataan -->
                     @if($ppdb) <!-- Memastikan data ada -->
-                        <h5 class="mt-3">{{ $ppdb->name }}</h5> <!-- Menampilkan nama PPDB -->
+                        <h5 class="mt-3"></h5> <!-- Menampilkan nama PPDB -->
                         <a href="{{ asset('image/' . $ppdb->logo) }}" data-lightbox="ppdb" data-title="{{ $ppdb->name }}">
                           <img src="{{ asset('image/' . $ppdb->logo) }}" alt="{{ $ppdb->name }}" class="img-fluid">
                         </a>
