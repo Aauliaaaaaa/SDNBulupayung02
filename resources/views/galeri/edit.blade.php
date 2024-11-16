@@ -12,20 +12,6 @@
                 @method('PUT')
                 @csrf 
                <div class="form-group">
-                    <label for="">Judul</label>
-                    <input type="text" class="form-control" name="title" placeholder="Judul" value="{{ $galeri->title }}">
-               </div>
-               @error('title')
-               <small style="color: red">{{ $message }}</small>
-               @enderror
-               <div class="form-group">
-                    <label for="">Deskripsi</label>
-                    <textarea name="description" id="" cols="30" rows="10" class="form-control" placeholder="Deskripsi">{{ $galeri->description }}</textarea>
-               </div>
-               @error('description')
-               <small style="color: red">{{ $message }}</small>
-               @enderror
-               <div class="form-group">
                     <label for="">Kategori</label>
                     <select name="category" class="form-control">
                         <option value="kegiatan" {{ $galeri->category == 'kegiatan' ? 'selected' : '' }}>Kegiatan Siswa</option>

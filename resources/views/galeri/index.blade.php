@@ -34,8 +34,6 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Judul</th>
-                    <th>Deskripsi</th>
                     <th>Gambar</th>
                     <th>Kategori</th>
                     <th>Aksi</th>
@@ -48,8 +46,6 @@
                 @foreach ($galeri as $galeri)
                 <tr>
                     <td>{{ $i++ }}</td>
-                    <td>{{ $galeri->title }}</td>
-                    <td>{{ $galeri->description }}</td>
                     <td>
                         <img src="/image/{{ $galeri->image }}" alt="{{ $galeri->title }}" class="img-fluid" width="90">
                     </td>

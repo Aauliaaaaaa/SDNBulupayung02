@@ -100,10 +100,17 @@ a{
     color: white;
 }
 
-.btn-subscribe, 
-.btn-to-top{
-    background:blue ;
+.btn-to-top {
+    width: 50px; /* Sesuaikan ukuran */
+    height: 50px;
+    border-radius: 50%; /* Membuat bentuk bulat */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff; /* Sesuaikan warna */
+    color: #fff;
 }
+
 
 .btn-to-top{
     display: inline;

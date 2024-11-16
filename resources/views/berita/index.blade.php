@@ -35,7 +35,7 @@
                 <tr>
                     <td>{{ $i++ }}</td>
                     <td>{{ $slider->title }}</td>
-                    <td>{{ $slider->description }}</td>
+                    <td>{{ Str::limit(strip_tags($slider->description), 50) }}</td>
                     <td>
                         <img src="/image/{{ $slider->image }}" alt="" class="img-fluid" width="90">
                     </td>

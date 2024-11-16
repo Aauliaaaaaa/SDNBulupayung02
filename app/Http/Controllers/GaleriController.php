@@ -40,8 +40,6 @@ class GaleriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
             'image' => 'required|image',
             'category' => 'required', // Tambahkan validasi kategori
         ]);
@@ -82,8 +80,6 @@ class GaleriController extends Controller
     public function update(Request $request, Galeri $galeri)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
             'image' => 'image',
             'category' => 'required', // Validasi kategori
         ]);

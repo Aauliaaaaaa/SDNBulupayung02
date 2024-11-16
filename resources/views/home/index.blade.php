@@ -56,6 +56,13 @@
         <li class="nav-item">
           <a class="nav-link fw-bolder" href="contact">Contact</a>
         </li>
+
+        @guest
+        <li class="nav-item">
+          <a class="nav-link fw-bolder" href="{{ route('login') }}">Login</a>
+        </li>
+        @endguest
+        
       </ul>
     </div>
   </div>
@@ -214,32 +221,35 @@
 
 
     <!-- ppdb -->
-    <div class="ppdb mt-5"> 
+    <div class="ppdb mt-5">
       <div class="container">
-          <div class="title-container">
+        <div class="title-container">
           <h2 class="text-center fw-bold">Alur PPDB</h2>
-      </div>
-      <div class="ppdb mt-5"> 
-        <div class="container ">
-            <div class="row mt-5">
-                <div class="col-md-12">
-                    <div class="img-ppdb text-center"> 
-                        @if($ppdb) 
-                            <h5 class="mt-3">{{ $ppdb->name }}</h5> 
-                            <a href="{{ asset('image/' . $ppdb->logo) }}" data-lightbox="ppdb" data-title="{{ $ppdb->name }}">
-                              <img src="{{ asset('image/' . $ppdb->logo) }}" alt="{{ $ppdb->name }}" class="img-fluid">
-                            </a>
-                            <p>{{ $ppdb->description }}</p> 
-                        @else
-                            <p>Tidak ada informasi PPDB yang tersedia.</p>
-                        @endif
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
+        <div class="row mt-5">
+          <div class="col-md-6 d-flex align-items-center">
+            <!-- Kolom untuk deskripsi -->
+            <div>
+              @if($ppdb)
+                <p class="mt-3">{{ $ppdb->name }}</p>
+                <p>{{ $ppdb->description }}</p>
+              @else
+                <p>Tidak ada informasi PPDB yang tersedia.</p>
+              @endif
+            </div>
+          </div>
+          <div class="col-md-6 text-center">
+            <!-- Kolom untuk gambar -->
+            @if($ppdb)
+              <a href="{{ asset('image/' . $ppdb->logo) }}" data-lightbox="ppdb" data-title="{{ $ppdb->name }}">
+                <img src="{{ asset('image/' . $ppdb->logo) }}" alt="{{ $ppdb->name }}" class="img-fluid w-75">
+              </a>
+            @endif
+          </div>
+        </div>
       </div>
     </div>
+    
     <!-- end ppdb -->
 
   <!-- galeri us -->
@@ -365,9 +375,12 @@
   <!-- endfooter -->
 
   <!-- to tap -->
-<a href="#" class="btn-to-top p-3">
-  <i class="fa fa-chevron-up"></i>
-</a>
+  <a href="#" class="btn-to-top p-3">
+    <i class="fa fa-chevron-up"></i>
+  </a>
+    <!--end to tap -->
+  
+
   <!--end to tap -->
 
 
