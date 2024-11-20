@@ -18,7 +18,7 @@
   </head>
   <body>
  <!-- navbar -->
- <nav class="navbar navbar-expand-lg bg-white shadow shadow-sm fixed-top py-3">
+ @include('layouts.navbar')
     <div class="container">
       <a class="navbar-brand fw-bold" href="#"
       >
@@ -189,9 +189,7 @@
   <!-- endfooter -->
 
   <!-- to tap -->
-<a href="#" class="btn-to-top p-3">
-  <i class="fa fa-chevron-up"></i>
-</a>
+    @include('layouts.tap')
   <!--end to tap -->
 
 

@@ -15,11 +15,12 @@
     <title>SD N Bulupayung 02</title>
   </head>
   <body>
+    
     <!-- Konten Halaman Berita -->
-    <div class="container mt-5 d-flex justify-content-center">
+    <div class="container mt-5 d-flex justify-content-center" style="padding: 100px">
         <div class="col-md-10">
             <div class="card shadow-sm border-0 text-center" style="border-radius: 10px;">
-                <img src="{{ asset('image/' . $berita->image) }}" class="card-img-top img-fluid mx-auto" alt="{{ $berita->title }}" style="height: 400px; width: 100%; object-fit: cover;">
+                <img src="{{ asset('image/' . $berita->image) }}" class="card-img-top img-fluid mx-auto" alt="{{ $berita->title }}" style="height: 100%; width: 100%; object-fit: cover;">
                 
                 <div class="card-body p-4" style="background-color: #f8f9fa;">
                     <h1 class="card-title font-weight-bold mb-3" style="font-size: 2rem; color: #333;">{{ $berita->title }}</h1>
