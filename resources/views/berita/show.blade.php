@@ -15,6 +15,7 @@
     <title>SD N Bulupayung 02</title>
   </head>
   <body>
+    
     <!-- Konten Halaman Berita -->
     <div class="container mt-5 d-flex justify-content-center" style="padding: 100px">
         <div class="col-md-10">

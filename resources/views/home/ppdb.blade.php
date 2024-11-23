@@ -17,7 +17,9 @@
     <title>SD N Bulupayung 02</title>
   </head>
   <body>
- @include('components.navbar')
+<!-- navbar -->
+ @include('layouts.navbar')
+<!-- endnav -->
 
  <!-- breadcumbs -->
 <div class="breadcumbs py-2">
@@ -151,11 +153,9 @@
    
   <!-- endfooter -->
 
-  <!-- to tap -->
-<a href="#" class="btn-to-top p-3">
-  <i class="fa fa-chevron-up"></i>
-</a>
-  <!--end to tap -->
+<!-- to tap -->
+@include('layouts.tap')
+<!--end to tap -->
 
 
     <script src="/assets/vendor/jquery/jquery-3.7.1.js"></script>

@@ -20,8 +20,9 @@
     <title>SD N Bulupayung 02</title>
   </head>
   <body>
- 
-    @include('components.navbar')
+  <!-- navbar -->
+    @include('layouts.navbar')
+  <!-- endnav -->
 
  <!-- carausel -->
  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="margin-top: 50px;">
@@ -329,10 +330,8 @@
   <!-- endfooter -->
 
   <!-- to tap -->
-  <a href="#" class="btn-to-top" style="display: flex; justify-content: center; align-items: center;">
-    <i class="fa fa-chevron-up"></i>
-  </a>
-    <!--end to tap -->
+  @include('layouts.tap')
+  <!--end to tap -->
   
 
   <!--end to tap -->
