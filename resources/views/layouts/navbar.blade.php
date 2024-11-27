@@ -1,7 +1,9 @@
 <nav class="navbar navbar-expand-lg bg-white shadow shadow-sm fixed-top py-3">
     <div class="container">
       <a class="navbar-brand fw-bold" href="#">
+        @if (isset($contact->logo))
         <img src="{{ asset('image/' . $contact->logo) }}" alt="Logo Sekolah" style="width: 40px; height: 40px; margin-right: 10px;">
+      @endif
       <span class="primary"></span>SD N Bulupayung 02</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
