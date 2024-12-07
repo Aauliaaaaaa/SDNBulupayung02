@@ -251,7 +251,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy;{{date('Y')}} <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy;{{date('Y')}} <a href="https://adminlte.io">Aulia Nabilah</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->
