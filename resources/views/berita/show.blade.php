@@ -17,10 +17,10 @@
   <body>
     
     <!-- Konten Halaman Berita -->
-    <div class="container mt-5 d-flex justify-content-center" style="padding: 100px">
+    <div class="container mt-5 d-flex justify-content-center" style="padding: 100px;">
         <div class="col-md-10">
-            <div class="card shadow-sm border-0 text-center" style="border-radius: 10px;">
-                <img src="{{ asset('image/' . $berita->image) }}" class="card-img-top img-fluid mx-auto" alt="{{ $berita->title }}" style="height: 500px; width: 100%; object-fit: cover;">
+            <div class="card shadow-sm border-0 text-center" style="border-radius: 10px; background-color: #f8f9fa;">
+                <img src="{{ asset('image/' . $berita->image) }}" class="card-img-top img-fluid mx-auto" alt="{{ $berita->title }}" style="height: 500px; width: 100%; object-fit: contain;">
                 
                 <div class="card-body p-5" style="background-color: #f8f9fa; padding: 40px;">
                   <h1 class="card-title font-weight-bold mb-3" style="font-size: 2rem; color: #333;">{{ $berita->title }}</h1>
