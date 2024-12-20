@@ -51,7 +51,8 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::resource('teams', TeamController::class);
     Route::resource('misis', MisiController::class);
    
-    Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
+    Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');  
+    Route::get('/berita', [BeritaController::class, 'update'])->name('berita.index');
 
     Route::get('contact', [ContactController::class, 'index']);
     Route::put('contact/{id}', [ContactController::class, 'update']);
